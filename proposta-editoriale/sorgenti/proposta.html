@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>La Radioterapista Invisibile – Proposta editoriale</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 20mm 21mm 22mm 21mm; }
+  :root { --ink:#1f1d1a; --muted:#6b655d; --accent:#8a5a1c; --line:#d9d2c7; --wash:#f6f2ec; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin:0; color:var(--ink); background:#fff; font-family:'Source Serif 4', Georgia, serif; font-size:9.7pt; line-height:1.45; hyphens:auto; }
+  p { margin:0 0 7pt; orphans:3; widows:3; }
+  h1,h2,h3 { font-family:'EB Garamond', Georgia, serif; font-weight:500; color:var(--ink); break-after:avoid; page-break-after:avoid; }
+  h2 { font-size:19pt; margin:0 0 4pt; line-height:1.15; }
+  h2 .n { color:var(--accent); margin-right:8pt; }
+  h3 { font-size:13pt; margin:11pt 0 3pt; line-height:1.2; }
+  h3 .tag { font-family:Inter, sans-serif; font-size:7.6pt; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-right:6pt; vertical-align:2px; }
+  .lead { color:var(--muted); font-style:italic; margin-bottom:12pt; }
+  .section { margin-top:18pt; }
+  .pb { break-before:page; page-break-before:always; margin-top:0; }
+  .rule { border:0; border-top:1px solid var(--line); margin:12pt 0; }
+  .label { font-family:Inter, sans-serif; font-size:7.6pt; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600; }
+  ul { margin:2pt 0 8pt; padding-left:14pt; }
+  li { margin-bottom:3pt; }
+  li::marker { color:var(--accent); }
+  .keep { break-inside:avoid; page-break-inside:avoid; }
+
+  /* Cover */
+  .cover { height:253mm; display:flex; flex-direction:column; }
+  .cover .top { padding-top:38mm; }
+  .cover .kicker { font-family:Inter, sans-serif; font-size:8.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:14pt; }
+  .cover h1 { font-size:38pt; line-height:1.05; margin:0 0 10pt; font-weight:500; }
+  .cover .sub { font-family:'EB Garamond', serif; font-size:18pt; font-style:italic; color:var(--muted); margin-bottom:26pt; }
+  .cover .by { font-family:Inter, sans-serif; font-size:9pt; color:var(--ink); line-height:1.6; border-left:2px solid var(--accent); padding-left:10pt; }
+  .cover .facts { margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:14pt; }
+  .box { background:var(--wash); padding:11pt 13pt; border-radius:2pt; font-size:9.3pt; line-height:1.45; }
+  .box p:last-child, .box ul:last-child { margin-bottom:0; }
+  .box .label { display:block; margin-bottom:5pt; }
+
+  /* Tables */
+  table { width:100%; border-collapse:collapse; font-size:8.6pt; line-height:1.34; margin:6pt 0 4pt; }
+  thead { display:table-header-group; }
+  th { font-family:Inter, sans-serif; font-size:7.2pt; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); text-align:left; font-weight:600; padding:5pt 6pt; border-bottom:1.2px solid var(--accent); }
+  td { vertical-align:top; padding:4.5pt 6pt; border-bottom:1px solid var(--line); }
+  tr { break-inside:avoid; page-break-inside:avoid; }
+  td.ref { font-weight:600; width:24%; }
+  td.ref span { display:block; font-weight:400; font-style:italic; color:var(--muted); }
+  td.t { width:5%; text-align:center; font-size:8pt; line-height:1; padding-top:6pt; }
+  td.ben { width:22%; color:var(--muted); font-style:italic; }
+  .legend { font-size:8.3pt; margin:4pt 0 6pt; } .legend span { margin-right:12pt; white-space:nowrap; display:inline-block; }
+  .legend span b { color:var(--accent); font-size:11pt; margin-right:3pt; }
+
+  .m { display:inline-block; width:7pt; height:7pt; border-radius:50%; border:1.3px solid var(--accent); vertical-align:-1pt; }
+  .m.s { background:var(--accent); }
+  .m.l { background:linear-gradient(90deg, var(--accent) 50%, transparent 50%); }
+  .m.c { background:transparent; }
+  .legend span .m { margin-right:4pt; }
+  /* Nuclei */
+  .nucleo { margin-bottom:2pt; }
+  .nucleo h3, .nucleo .oggi { break-after:avoid; page-break-after:avoid; }
+  .nucleo li { break-inside:avoid; }
+  .nucleo .oggi { font-size:9.6pt; color:var(--muted); margin-bottom:4pt; }
+  .nucleo .oggi b { color:var(--ink); font-weight:600; }
+  .nucleo ul { font-size:9.6pt; }
+
+  /* Episodi */
+  .ep { break-inside:avoid; page-break-inside:avoid; border-top:1px solid var(--line); padding:7pt 0 4pt; }
+  .ep h3 { margin:0 0 3pt; }
+  .ep .meta { display:grid; grid-template-columns:92pt 1fr; gap:2pt 10pt; font-size:9.1pt; margin-top:5pt; }
+  .ep .meta .k { font-family:Inter, sans-serif; font-size:7.3pt; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); font-weight:600; padding-top:2pt; }
+  .ep .syn { font-size:9.9pt; margin:0; }
+  .badge { font-family:Inter, sans-serif; font-size:7pt; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--accent); color:var(--accent); padding:1pt 4pt; border-radius:2pt; vertical-align:3px; margin-left:6pt; font-weight:600; }
+
+  .ideas td:first-child { width:34%; font-weight:600; }
+  .scen td:first-child { width:24%; font-weight:600; }
+  .scen td { font-size:9pt; }
+
+  ol.steps { list-style:none; padding:0; margin:6pt 0 0; counter-reset:s; }
+  ol.steps li { counter-increment:s; position:relative; padding:0 0 7pt 30pt; break-inside:avoid; }
+  ol.steps li::before { content:counter(s); position:absolute; left:0; top:-2pt; font-family:'EB Garamond', serif; font-size:18pt; color:var(--accent); }
+  ol.steps li b { display:block; }
+
+  ol.q { padding-left:16pt; }
+  ol.q li { margin-bottom:6pt; }
+  ol.q li::marker { font-family:'EB Garamond', serif; color:var(--accent); font-weight:600; }
+  .closing { margin-top:16pt; padding-top:10pt; border-top:1px solid var(--line); font-style:italic; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- COPERTINA -->
+<div class="cover">
+  <div class="top">
+    <div class="kicker">Proposta editoriale di ampliamento</div>
+    <h1>La Radioterapista<br>Invisibile</h1>
+    <div class="sub">Appunti clinici e emozionali da un bunker</div>
+    <div class="by">Per Micaela, autrice con lo pseudonimo Lumi Zanardi<br>A cura di Elite Publishing · Ottobre 2026</div>
+  </div>
+  <div class="facts">
+    <div class="box">
+      <span class="label">Il testo esaminato</span>
+      <p>Abbiamo letto per intero il PDF impaginato che ci ha inviato: prologo, 25 capitoli, interludio, due bonus track, due poesie, la lettera notturna e il glossario.</p>
+      <p>Il file ha 39 pagine, ma quasi tutte mostrano due pagine affiancate: corrispondono a 76 pagine di libro in formato 15,2 × 22,9 cm, con testo fino a pagina 71. Le “circa 40 pagine” sono quindi le pagine del file.</p>
+      <p>Il testo conta circa <b>9.500 parole</b> (stima ricavata dal PDF, da confermare sul file Word).</p>
+    </div>
+    <div class="box">
+      <span class="label">La proposta in breve</span>
+      <ul>
+        <li>Ampliare in profondità sette nuclei narrativi, lasciando brevi i capitoli che funzionano come lampi.</li>
+        <li>Aggiungere da quattro a sei episodi nuovi, tutti da concordare con lei.</li>
+        <li>Rendere più continui i fili che attraversano il libro: Gabriele, la signora Ratti, il Calciatore, Crudelia.</li>
+        <li>Rivedere punto di vista, cronologia e raccordi, poi formattare per carta e Kindle e accompagnarla su Amazon KDP.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 1 -->
+<div class="section pb">
+  <h2><span class="n">1</span>La direzione del progetto</h2>
+  <p class="lead">Che cosa funziona già, e che cosa vogliamo ottenere.</p>
+
+  <h3>Ciò che il libro fa bene</h3>
+  <p><b>Lo sguardo di Clara.</b> Il libro guarda l’ospedale da un punto in cui pochi si mettono: la console, la stanza del TPS, la sedia in fondo a sinistra alla riunione del lunedì. Da lì Clara vede ciò che agli altri sfugge, e il lettore vede con lei.</p>
+  <p><b>Tecnica e umanità nella stessa frase.</b> Nel capitolo 3 Clara vorrebbe scrivere “Tenerezza” nel campo della dose e digita invece “45 Gy in 15 fx con SIB”. È un’immagine che riassume il libro: la precisione non è il contrario della cura, è il modo in cui Clara la esercita.</p>
+  <p><b>L’ironia.</b> Crudelia, l’ape regina, il Domatore di fotoni e il glossario semiserio raccontano le dinamiche di potere del reparto senza trasformarle in un atto d’accusa. La satira alleggerisce, e intanto mostra.</p>
+  <p><b>Il contrasto che regge tutto.</b> Clara è invisibile nelle riunioni, nelle firme, nelle email. Per Eleonora, Mario Seregni, la signora Ratti e Chiara invece è la persona più presente del reparto. Questa tensione è il motore del libro, e l’ampliamento deve servirla senza ripeterla.</p>
+
+  <h3>Il risultato che proponiamo</h3>
+  <p>Una versione più ricca e più coesa dello stesso libro, non un libro diverso. Oggi molti capitoli durano fra le 100 e le 300 parole: funzionano come istantanee, ma alcune storie si chiudono prima che il lettore abbia il tempo di affezionarsi. Lavoreremo su tre leve:</p>
+  <ul>
+    <li><b>Scene più piene nei nuclei più forti</b>, con dialoghi, gesti e conseguenze, là dove oggi c’è un riassunto.</li>
+    <li><b>Fili che attraversano più capitoli</b>, in modo che personaggi e oggetti (la spilla, la lavagna, la stanza 7) ritornino e crescano.</li>
+    <li><b>Alcuni episodi nuovi</b> che mostrino ciò che oggi è solo nominato: il bunker visto da chi entra la prima volta, la sala d’attesa, la fine delle cure.</li>
+  </ul>
+  <p>I capitoli brevi resteranno brevi. La lunghezza di ciascun capitolo dipenderà dalla storia che racconta, non da uno schema uguale per tutti: alcuni raddoppieranno o triplicheranno, altri resteranno com’erano.</p>
+</div>
+
+<!-- 2 -->
+<div class="section">
+  <h2><span class="n">2</span>Cosa amplieremo nei capitoli esistenti</h2>
+  <p class="lead">Una mappa di tutto il libro. I capitoli collegati sono raggruppati; le lettere A–G rimandano agli approfondimenti delle pagine successive.</p>
+  <div class="legend">
+    <span><i class="m s"></i>Ampliamento sostanziale</span>
+    <span><i class="m l"></i>Ampliamento leggero o raccordo</span>
+    <span><i class="m c"></i>Conservazione con revisione</span>
+  </div>
+  <table>
+    <thead><tr><th>Capitolo o inserto</th><th></th><th>Che cosa svilupperemo</th><th>Per il lettore</th></tr></thead>
+    <tbody>
+      <tr><td class="ref">Prologo<span>“Io non mi spiego più”</span></td><td class="t"><i class="m c"></i></td><td>Resta com’è. Valuteremo con lei se attribuirlo esplicitamente a Clara o lasciarlo come voce dell’autrice.</td><td class="ben">Una soglia chiara per entrare nel libro.</td></tr>
+      <tr><td class="ref">Cap. 1<span>La radioterapista invisibile</span></td><td class="t"><i class="m s"></i></td><td>Il primo incontro con Eleonora, le notti di pianificazione, la discussione in collegiale, la prima seduta. <b>Nucleo A.</b></td><td class="ben">Il patto di fiducia su cui si regge tutto il libro.</td></tr>
+      <tr><td class="ref">Cap. 2<span>Il camice sbagliato</span></td><td class="t"><i class="m l"></i></td><td>Qualche riga sul vecchio camice (la toppa sul gomito, il nome quasi cancellato) come aggancio al nuovo episodio sulla scelta della radioterapia.</td><td class="ben">Un oggetto che diventa memoria.</td></tr>
+      <tr><td class="ref">Cap. 3 e 4<span>TPS · La stanza dei colloqui</span></td><td class="t"><i class="m c"></i></td><td>Due lampi da conservare nella loro brevità. La figlia “troppo giovane per quel ruolo” del cap. 4 può tornare nell’episodio sulla sala d’attesa.</td><td class="ben">Respiri brevi tra capitoli più pieni.</td></tr>
+      <tr><td class="ref">Cap. 5, 7 e 15<span>SENOSALVO · La Crudelia · La firma di Crudelia</span></td><td class="t"><i class="m s"></i></td><td>Le riunioni multidisciplinari e il confronto con Crudelia, oggi raccontato soprattutto attraverso tracce scritte. <b>Nucleo B.</b></td><td class="ben">Capire come si decide una cura, e chi decide.</td></tr>
+      <tr><td class="ref">Cap. 6<span>Martedì senza ginecologia</span></td><td class="t"><i class="m c"></i></td><td>Intatto. Diventa il contrappunto del nuovo episodio “Martedì con ginecologia”.</td><td class="ben">Un’eco che il lettore riconosce.</td></tr>
+      <tr><td class="ref">Cap. 8<span>Radioterapia e magia nera</span></td><td class="t"><i class="m c"></i></td><td>La spiegazione della radioterapia è già efficace. Solo revisione; un possibile richiamo nell’episodio “Centratura”.</td><td class="ben">La paura spiegata con parole semplici.</td></tr>
+      <tr><td class="ref">Cap. 9 e inserti<span>La minestra riscaldata · Interludio · Ricetta · “Quasi amore”</span></td><td class="t"><i class="m l"></i></td><td>Un breve passaggio in più sull’ex, solo se lo desidera. Chiarire chi parla in “Quasi amore” (una voce maschile che dice “il mio codice”). Valutare di avvicinare all’Interludio la “Nota a margine” sulla lanterna, oggi nel cap. 25.</td><td class="ben">Gli inserti diventano parte del racconto, non pause.</td></tr>
+      <tr><td class="ref">Cap. 10, 11, 13 e poesia<span>Il calciatore · La stanza TPS è viva · La figlia del mercoledì</span></td><td class="t"><i class="m s"></i></td><td>La vita privata di Clara e ciò che porta a casa dal lavoro. <b>Nucleo F.</b></td><td class="ben">Clara esiste anche fuori dal bunker.</td></tr>
+      <tr><td class="ref">Cap. 12<span>Il caso della stanza 12</span></td><td class="t"><i class="m s"></i></td><td>Mario Seregni e il valore dell’ascolto. <b>Nucleo C.</b></td><td class="ben">Il cuore emotivo del libro.</td></tr>
+      <tr><td class="ref">Cap. 14<span>L’ape regina</span></td><td class="t"><i class="m l"></i></td><td>Precisare il ruolo di Antonia in reparto e darle una scena concreta con Clara: per esempio il primo giorno di Clara, visto da lei.</td><td class="ben">Un’antagonista con una storia, non solo un ritratto.</td></tr>
+      <tr><td class="ref">Cap. 16<span>Il paziente che chiedeva permesso</span></td><td class="t"><i class="m l"></i></td><td>Conservare il dittico con il cap. 15. Dare un nome al paziente e lasciare un filo che si chiuderà nell’episodio “L’ultima seduta”.</td><td class="ben">Un personaggio che il lettore ritrova.</td></tr>
+      <tr><td class="ref">Cap. 17 e 19<span>Lo specializzando… · Gabriele da solo</span></td><td class="t"><i class="m s"></i></td><td>La trasmissione del mestiere. <b>Nucleo D.</b></td><td class="ben">Vedere il mestiere passare di mano.</td></tr>
+      <tr><td class="ref">Cap. 18 e Bonus<span>La signora con la scatola di latta · Il significato della Margherita</span></td><td class="t"><i class="m s"></i></td><td>La scatola di latta e il filo della margherita. <b>Nucleo E.</b> Il bonus resta, alleggerito e con i dati verificati.</td><td class="ben">Una storia che attraversa il libro.</td></tr>
+      <tr><td class="ref">Cap. 20<span>Clara sola in sala d’attesa</span></td><td class="t"><i class="m s"></i></td><td>La solitudine e il peso emotivo del lavoro. <b>Nucleo G.</b></td><td class="ben">Il prezzo nascosto della cura.</td></tr>
+      <tr><td class="ref">Cap. 21<span>Tu sei meglio</span></td><td class="t"><i class="m c"></i></td><td>Conservare la delicatezza. Solo un raccordo: la “paziente giovane che parlava sottovoce” del cap. 20 potrebbe essere Chiara.</td><td class="ben">Due capitoli che si parlano.</td></tr>
+      <tr><td class="ref">Cap. 22<span>Crudelia e lo psicologo</span></td><td class="t"><i class="m c"></i></td><td>Revisione di ritmo e coerenza con gli altri ritratti di Crudelia. Nessun cambiamento di senso senza il suo accordo.</td><td class="ben">La satira resta, più nitida.</td></tr>
+      <tr><td class="ref">Cap. 23<span>Il domatore di fotoni</span></td><td class="t"><i class="m l"></i></td><td>Il finale compare in due versioni ravvicinate: sceglieremo con lei quale tenere. La paziente claustrofobica affidata a Clara diventa l’aggancio dell’episodio “Centratura”.</td><td class="ben">Un finale netto e un filo nuovo.</td></tr>
+      <tr><td class="ref">Cap. 24<span>Il giorno in cui nessuno poté mentire</span></td><td class="t"><i class="m l"></i></td><td>Completare lo scambio con il primario, dove sembra mancare una battuta, e preparare meglio la scoperta che si tratta di un sogno.</td><td class="ben">Il gioco narrativo funziona fino in fondo.</td></tr>
+      <tr><td class="ref">Cap. 25<span>Sulle spalle dei giganti</span></td><td class="t"><i class="m c"></i></td><td>Verifica di date, ruoli e nomi. Proporremo di separare la parte storica (come postfazione o appendice) dalla scena della donna che veglia, che può introdurre la Lettera notturna.</td><td class="ben">Un finale narrativo e una parte storica più solida.</td></tr>
+      <tr><td class="ref">Lettera notturna<span>dalla camera 7</span></td><td class="t"><i class="m c"></i></td><td>Resta com’è. Possibile eco con la stanza 7 del cap. 9 e con l’episodio del familiare.</td><td class="ben">Una chiusura che raccoglie i fili.</td></tr>
+      <tr><td class="ref">Glossario semiserio</td><td class="t"><i class="m l"></i></td><td>Aggiungere 6–8 voci che compaiono nel testo senza spiegazione (Gy, frazione, DVH, GTV, IMRT, SBRT, IGRT, centratura), con definizioni che lei validerà.</td><td class="ben">Il lettore non specialista non resta indietro.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 2b nuclei -->
+<div class="section">
+  <h2><span class="n">2</span>I sette nuclei da approfondire</h2>
+  <p class="lead">Dove concentreremo la crescita. Per ognuno indichiamo che cosa c’è oggi e quali scene aggiungeremo.</p>
+
+  <div class="nucleo">
+    <h3><span class="tag">A</span>Eleonora: riconoscimento e fiducia · cap. 1</h3>
+    <p class="oggi"><b>Oggi:</b> in una pagina e mezza ci sono la diagnosi, tre notti di lavoro, la collegiale, la prima seduta, l’esito e la torta. Ogni passaggio è una scena compressa.</p>
+    <ul>
+      <li>La prima visita: Eleonora arriva con i “no” ricevuti altrove. Che cosa chiede, e che cosa Clara sceglie di non promettere.</li>
+      <li>Le notti al TPS raccontate attraverso un solo problema concreto di pianificazione, che le sottoporremo per la validazione.</li>
+      <li>La collegiale come scena vera: chi parla, chi tace, che cosa costa a Clara dire “Lo farò io”.</li>
+      <li>La prima seduta vista dalla console, fino a “Lei esiste, vero?”.</li>
+      <li>La torta trovata più tardi, attraverso un collega o una fotografia, perché Clara non c’era.</li>
+    </ul>
+    <p style="font-size:9.3pt">L’esito clinico resterà quello che lei ha scritto: non aggiungeremo dettagli.</p>
+  </div>
+
+  <div class="nucleo">
+    <h3><span class="tag">B</span>Le riunioni multidisciplinari e Crudelia · cap. 5, 7, 15</h3>
+    <p class="oggi"><b>Oggi:</b> Crudelia compare soprattutto attraverso le sue tracce: il pennarello sul planning, la firma, la penna viola. È una scelta efficace, ma manca una scena in cui le due si confrontino a voce.</p>
+    <ul>
+      <li>Cap. 5: il caso della paziente di 90 anni presentato davvero, con le opzioni di Clara e le interruzioni. Il collega che dice “dovevi essere più assertiva” acquista un volto.</li>
+      <li>Cap. 7: un breve scambio in corridoio dopo il planning conteso. Clara non risponde, ma il lettore capisce che cosa trattiene.</li>
+      <li>Cap. 15: chi ha lasciato il referto sulla scrivania, e perché. La sequenza firma → paziente che chiede permesso resta intatta.</li>
+      <li>Il nuovo episodio “Martedì con ginecologia” chiude l’arco: la Clara del cap. 5 davanti a un caso che conosce meglio di tutti.</li>
+    </ul>
+  </div>
+
+  <div class="nucleo">
+    <h3><span class="tag">C</span>Mario Seregni e il valore dell’ascolto · cap. 12</h3>
+    <p class="oggi"><b>Oggi:</b> il capitolo ha già una struttura completa. Le “lezioni di cinque minuti” sono una delle idee più belle del libro, ma sono raccontate in una riga.</p>
+    <ul>
+      <li>Due o tre lezioni mostrate davvero: Mario spiega un passo di Spinoza o un sonetto e, senza dirlo, parla della propria malattia. Verificheremo citazioni e attribuzioni.</li>
+      <li>Il rifiuto iniziale (“Non voglio palliativi”) e il modo in cui Clara lo attraversa senza forzarlo: un dialogo sulla differenza fra curare e guarire.</li>
+      <li>I colleghi che evitano la stanza 12, e un piccolo segno di cambiamento in reparto dopo di lui.</li>
+    </ul>
+  </div>
+
+  <div class="nucleo">
+    <h3><span class="tag">D</span>Gabriele e la trasmissione del mestiere · cap. 17, 19, 24</h3>
+    <p class="oggi"><b>Oggi:</b> Gabriele ha già un arco: arriva (17), lavora da solo (19), confessa un dubbio (24, ma dentro un sogno).</p>
+    <ul>
+      <li>Un primo errore di comunicazione: una parola sbagliata detta a un paziente, e il modo in cui Clara lo corregge in privato.</li>
+      <li>Il biglietto “Lascia parlare i pazienti” spiegato in un breve dialogo dopo la visita del cap. 19.</li>
+      <li>Se è d’accordo, il dubbio del cap. 24 (“ho paura che mi stia svuotando”) espresso anche in una scena reale.</li>
+    </ul>
+  </div>
+
+  <div class="nucleo">
+    <h3><span class="tag">E</span>La signora Ratti e la scatola di latta · cap. 18, Bonus, 20</h3>
+    <p class="oggi"><b>Oggi:</b> la scatola, la spilla e la margherita sono già oggetti che attraversano più capitoli: la spilla torna nei cap. 19 e 20.</p>
+    <ul>
+      <li>Il contenuto della scatola come racconto: un esame, un fazzoletto, un biglietto. Una vita in un contenitore.</li>
+      <li>La collezione di spille, oggi solo accennata: perché la tiene, a chi ne ha già regalate.</li>
+      <li>La figlia che “lavora”, protagonista del nuovo episodio in sala d’attesa.</li>
+      <li>Il suo caso discusso in riunione nel nuovo episodio “Martedì con ginecologia”, senza anticipare l’esito delle cure.</li>
+    </ul>
+  </div>
+
+  <div class="nucleo">
+    <h3><span class="tag">F</span>Il Calciatore e la vita privata di Clara · cap. 9–11, 13</h3>
+    <p class="oggi"><b>Oggi:</b> dall’innamoramento alla vita insieme il passaggio è molto rapido. La relazione è raccontata più dalla poesia che dalle scene.</p>
+    <ul>
+      <li>La prima volta che lui chiede davvero del suo lavoro, e che cosa lei decide di raccontare.</li>
+      <li>Un contrasto da sfruttare: lui viene riconosciuto per strada, lei no. La visibilità vista dall’altro lato, senza ripetere il tema.</li>
+      <li>La sera del mercoledì (cap. 13) in una scena precisa: ciò che Clara non dice e ciò che lui capisce lo stesso.</li>
+      <li>Un ritratto coerente: nel cap. 10 ha “mani da portiere” e “ride senza rumore”, nel cap. 11 è un attaccante che “prende il mondo a spallate”. Decideremo insieme chi è.</li>
+    </ul>
+    <p style="font-size:9.3pt">Quanto spazio dare a questo filo lo deciderà lei.</p>
+  </div>
+
+  <div class="nucleo">
+    <h3><span class="tag">G</span>La solitudine e il peso del lavoro · cap. 20</h3>
+    <p class="oggi"><b>Oggi:</b> è uno dei capitoli più intimi; la solitudine è detta bene, ma resta astratta.</p>
+    <ul>
+      <li>Che cosa pesa quel giorno, in concreto: una telefonata da fare, un esito da comunicare nel pomeriggio.</li>
+      <li>Un contatto minimo che rompe la solitudine senza risolverla, per esempio un paziente arrivato troppo presto.</li>
+      <li>Il collegamento con la paziente che parla sottovoce e con il capitolo successivo.</li>
+    </ul>
+    <p style="font-size:9.3pt">Il peso si leggerà nei gesti, non in nuove frasi sull’invisibilità.</p>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="section">
+  <h2><span class="n">3</span>Nuovi episodi proposti</h2>
+  <p class="lead">Sono ipotesi narrative da concordare. Nessun episodio sarà presentato come autobiografico senza una sua indicazione.</p>
+
+  <h3>Le idee che le avevamo anticipato</h3>
+  <ul style="font-size:9.4pt">
+    <li><b>La scelta della radioterapia:</b> oggi non è raccontata, quindi proponiamo un episodio nuovo (N1).</li>
+    <li><b>Il primo ingresso nel bunker:</b> non c’è ancora, e il cap. 23 offre l’aggancio ideale (N4).</li>
+    <li><b>Un familiare in sala d’attesa:</b> il libro ha due familiari (la figlia del cap. 4, la donna della Lettera notturna), ma nessuno parla dal proprio punto di vista (N3).</li>
+    <li><b>Il ritorno a casa:</b> è già in parte presente (cap. 13 e finale del cap. 24). Proponiamo di approfondire il cap. 13; un episodio autonomo (N6) solo nello scenario più ampio.</li>
+    <li><b>L’ultima seduta:</b> il “dopo” è già nel cap. 21 e la fine delle cure nel cap. 1. Proponiamo un’ultima seduta diversa, che chiuda un filo esistente (N5).</li>
+  </ul>
+
+  <div class="ep">
+    <h3>N1 · Il camice con la toppa</h3>
+    <p class="syn">Riordinando l’armadietto, Clara ritrova il vecchio camice del cap. 2. La toppa sul gomito e il nome sbiadito la riportano al momento in cui, giovane medico, ha scelto la radioterapia: un reparto, una persona, una frase.</p>
+    <div class="meta">
+      <div class="k">Inserimento</div><div>Dopo il cap. 2.</div>
+      <div class="k">Funzione</div><div>Dà un’origine allo sguardo di Clara e spiega perché per lei i pazienti contano più del riconoscimento.</div>
+      <div class="k">Da lei</div><div>Se la scelta deve ispirarsi alla sua esperienza o essere inventata; quale elemento mettere al centro.</div>
+    </div>
+  </div>
+
+  <div class="ep">
+    <h3>N2 · Martedì con ginecologia</h3>
+    <p class="syn">Il caso della signora Ratti arriva al gruppo del martedì. Clara lo presenta, Crudelia interviene, e questa volta qualcuno ascolta, o quasi. L’episodio si chiude con una decisione condivisa, non con l’esito della cura.</p>
+    <div class="meta">
+      <div class="k">Inserimento</div><div>Dopo il cap. 19.</div>
+      <div class="k">Funzione</div><div>Chiude l’arco aperto nel cap. 5 e dà seguito alla “valutazione multidisciplinare” promessa nel cap. 18.</div>
+      <div class="k">Da lei</div><div>Come si svolge realmente una discussione di questo tipo; validazione delle opzioni cliniche citate.</div>
+    </div>
+  </div>
+
+  <div class="ep">
+    <h3>N3 · Sala d’attesa, ore 8:10</h3>
+    <p class="syn">La figlia della signora Ratti prende un giorno di permesso per accompagnare la madre. Dalla sala d’attesa osserva gli altri familiari, i tecnici, il tabellone degli orari. Vede Clara per pochi minuti: abbastanza per capire perché sua madre le ha regalato una spilla.</p>
+    <div class="meta">
+      <div class="k">Inserimento</div><div>Dopo il cap. 20: la stessa sala, ma piena e di mattina.</div>
+      <div class="k">Funzione</div><div>L’unico capitolo visto da fuori: che cosa resta di Clara negli occhi di chi aspetta.</div>
+      <div class="k">Da lei</div><div>Se accetta un punto di vista esterno; dettagli realistici della sala d’attesa.</div>
+    </div>
+  </div>
+
+  <div class="ep">
+    <h3>N4 · Centratura</h3>
+    <p class="syn">La paziente claustrofobica che il Domatore affida a Clara nel cap. 23 entra per la prima volta nel bunker: la TC di centraggio, il sistema di immobilizzazione, i laser, i punti di riferimento sulla pelle, la porta schermata che si chiude, la voce all’interfono. Con lei, i tecnici di radiologia.</p>
+    <div class="meta">
+      <div class="k">Inserimento</div><div>Dopo il cap. 23.</div>
+      <div class="k">Funzione</div><div>Mostra il bunker del titolo e dà spazio ai TSRM, a cui il libro dedica la sua Nota a margine.</div>
+      <div class="k">Da lei</div><div>La sequenza reale della procedura nel suo centro; la sede da trattare; ruoli dei tecnici.</div>
+    </div>
+  </div>
+
+  <div class="ep">
+    <h3>N5 · L’ultima seduta</h3>
+    <p class="syn">Il paziente del cap. 16, quello che chiedeva “Posso?”, conclude il trattamento. Chiede permesso un’ultima volta, ora per andarsene. E adesso? Un controllo fra qualche mese, nessuna promessa, una strana nostalgia del bunker.</p>
+    <div class="meta">
+      <div class="k">Inserimento</div><div>Dopo il cap. 24, prima del cap. 25.</div>
+      <div class="k">Funzione</div><div>Chiude un filo narrativo e porta nel libro l’incertezza della fine delle cure, senza aggiungere esiti clinici.</div>
+      <div class="k">Da lei</div><div>Come si conclude un trattamento nel suo reparto; tempi e modi del follow-up.</div>
+    </div>
+  </div>
+
+  <div class="ep">
+    <h3>N6 · Le chiavi sul mobile <span class="badge">scenario articolato</span></h3>
+    <p class="syn">La sera dopo la morte di Mario Seregni: il tragitto, la casa, il Calciatore. Quello che Clara non riesce a dire, e quello che lui fa senza chiedere.</p>
+    <div class="meta">
+      <div class="k">Inserimento</div><div>Fra il cap. 12 e il cap. 13.</div>
+      <div class="k">Funzione</div><div>Mostra ciò che Clara porta a casa e prepara la “figlia del mercoledì”.</div>
+      <div class="k">Da lei</div><div>Quanto spazio dare alla vita privata.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="section">
+  <div class="keep">
+  <h2><span class="n">4</span>Continuità e revisione</h2>
+  <p class="lead">Ampliare significa anche far dialogare meglio i capitoli. Le soluzioni qui sotto sono proposte da discutere insieme.</p>
+
+  <h3>Il punto di vista</h3>
+  <p>Quasi tutto il libro è in terza persona, ma i capitoli 15–18 sono raccontati da Clara in prima persona (“da me”, “mia nonna”). Può essere una ricchezza, se diventa una scelta riconoscibile. Le strade possibili sono tre: uniformare tutto in terza persona; mantenere la prima persona come scelta dichiarata, per esempio come pagine del quaderno di Clara, in linea con gli “Appunti” del sottotitolo; oppure estenderla ad altri momenti intimi. La seconda ci sembra la più naturale, ma decideremo con lei.</p>
+  </div>
+
+  <h3>Il primo capitolo e l’invisibilità</h3>
+  <p>Il cap. 1 si chiude con “nessuno osò più dire che fosse invisibile”, mentre nei capitoli successivi Clara continua a non essere vista. Proponiamo di leggere il cap. 1 come una favola d’apertura (comincia, non a caso, con “C’era una volta”) e di ritoccare le ultime righe perché il cambiamento resti parziale. In alternativa, la storia di Eleonora potrebbe spostarsi più avanti, come punto d’arrivo.</p>
+
+  <h3>Cronologia, personaggi e raccordi</h3>
+  <ul>
+    <li><b>Cronologia.</b> Ricostruiremo una linea del tempo (giorni della settimana, stagioni, l’arrivo di Gabriele, la relazione con il Calciatore) per evitare salti involontari.</li>
+    <li><b>Personaggi.</b> Renderemo coerenti soprannomi e ritratti: Crudelia, “la Malefica” e “la Marchesa”; il ruolo di Antonia; il profilo del Calciatore; Gabriele, che nel cap. 24 è definito “nuovo”.</li>
+    <li><b>Raccordi.</b> Oggetti e luoghi che ritornano: la spilla, la lavagna disegnata da Mario, la stanza 7.</li>
+    <li><b>Ripetizioni e refusi.</b> Correzione e uniformità di virgolette, maiuscole e sigle. Molti capitoli si chiudono con una frase sentenziosa: ne terremo alcune e lasceremo altri finali più aperti.</li>
+    <li><b>Equilibrio fra narrazione, poesie e divulgazione.</b> Nessun inserto verrà eliminato senza la sua decisione. Proporremo di avvicinare ciascuno al capitolo a cui si lega.</li>
+  </ul>
+
+  <h3>Contenuti clinici e storici</h3>
+  <p>Non modificheremo dosi, terapie o affermazioni cliniche, e non aggiungeremo esiti di cura per rendere una storia più emozionante. Ogni passaggio tecnico nuovo le verrà sottoposto per la validazione. Verificheremo date e ruoli citati nel capitolo storico e rivedremo con lei la coerenza fra la nota iniziale (“opera di fantasia”) e le note finali sull’ispirazione reale.</p>
+</div>
+
+<!-- 5 -->
+<div class="section">
+  <h2><span class="n">5</span>Estensione proposta</h2>
+  <p class="lead">Due scenari, entrambi costruiti sui contenuti. Le cifre sono stime e partono da un testo attuale di circa 9.500 parole.</p>
+  <table class="scen">
+    <thead><tr><th></th><th>Ampliamento mirato</th><th>Ampliamento più articolato</th></tr></thead>
+    <tbody>
+      <tr><td>Parole aggiunte</td><td>circa 8.000 – 10.000</td><td>circa 13.000 – 16.000</td></tr>
+      <tr><td>Totale stimato</td><td>circa 17.500 – 19.500</td><td>circa 22.500 – 25.500</td></tr>
+      <tr><td>Nuovi capitoli</td><td>4 (consigliamo N2, N3, N4 e N5; N1 può sostituirne uno)</td><td>6 (da N1 a N6)</td></tr>
+      <tr><td>Che cosa cambia</td><td>Sviluppo dei sette nuclei A–G, raccordi leggeri, glossario integrato. Gli altri capitoli restano quasi invariati.</td><td>In più: anche i capitoli con ampliamento leggero ricevono scene proprie; i fili secondari (Antonia, la madre, l’ex, il Domatore) diventano piccole storie; la vita privata ha un episodio autonomo.</td></tr>
+      <tr><td>Pagine indicative</td><td>circa 115 – 135</td><td>circa 145 – 170</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:8.6pt; color:var(--muted); margin-top:6pt">Pagine stimate nello stesso formato attuale (15,2 × 22,9 cm), con corpo e interlinea simili (circa 230 parole per pagina piena), ogni capitolo su pagina nuova, poesie e illustrazioni mantenute; oggi il libro conta 76 pagine. Il numero finale dipenderà dall’impaginazione, e su Kindle il testo si adatta allo schermo. L’aumento verrà dai contenuti, non da caratteri, margini o spaziature più larghi.</p>
+
+  <h3>Il nostro consiglio: l’ampliamento mirato</h3>
+  <p>La forza del libro è la condensazione: molti capitoli funzionano perché dicono molto in poche righe. Con l’ampliamento mirato la sostanza narrativa quasi raddoppia, ma la crescita si concentra dove la storia la chiede (Eleonora, Mario, la signora Ratti, Gabriele, le riunioni, la vita di Clara). I lampi brevi restano lampi, e il ritmo a episodi si conserva.</p>
+  <p>Lo scenario articolato ha senso se lei dispone di appunti, ricordi o episodi sufficienti a sostenerlo; senza questo materiale, il rischio è di allungare invece di arricchire. Si può anche partire dal mirato e decidere dopo il capitolo campione se estendere il lavoro.</p>
+
+  <div class="keep" style="margin-top:20pt"><h2><span class="n">6</span>Come procederemo</h2>
+  <ol class="steps">
+    <li><b>Approvazione del piano</b>Lei sceglie gli interventi, gli episodi e lo scenario di estensione.</li>
+    <li><b>Raccolta dei materiali</b>Il file Word del libro e le sue indicazioni: appunti, ricordi, dettagli di reparto, limiti da rispettare.</li>
+    <li><b>Capitolo campione</b>Amplieremo un capitolo (proponiamo il cap. 12, Mario Seregni) per allineare insieme voce, tono e profondità prima di procedere.</li>
+    <li><b>Ampliamento e nuovi episodi</b>Lavoreremo sui capitoli concordati e sugli episodi approvati.</li>
+    <li><b>Revisione complessiva e confronto</b>Rileggeremo tutto per continuità e coerenza e le sottoporremo il testo, con evidenza dei passaggi clinici da validare.</li>
+    <li><b>Formattazione cartacea e Kindle</b>Sul testo approvato.</li>
+    <li><b>Pubblicazione su Amazon KDP</b>La assisteremo nel caricamento e nella pubblicazione della nuova edizione.</li>
+  </ol></div>
+</div>
+
+<!-- 7 -->
+<div class="section keep">
+  <h2><span class="n">7</span>Le scelte da confermare</h2>
+  <p class="lead">Per avviare il lavoro ci servono le sue risposte a queste domande.</p>
+  <ol class="q">
+    <li><b>Quali nuclei vuole approfondire per primi?</b> E ce n’è qualcuno che preferisce lasciare com’è?</li>
+    <li><b>Quanto spazio vuole dare alla vita privata di Clara</b>: il Calciatore, la madre, l’ex?</li>
+    <li><b>I nuovi episodi devono partire da suoi appunti o ricordi</b>, oppure possiamo proporle situazioni di finzione da rivedere insieme?</li>
+    <li><b>Quale scenario preferisce</b>: ampliamento mirato o più articolato?</li>
+    <li><b>Desidera mantenere tutti gli inserti</b> (poesie, bonus, capitolo storico, glossario) nella posizione attuale, o valutare la nostra proposta di collocazione?</li>
+  </ol>
+  <p class="closing">Con le sue risposte e il file Word prepareremo il capitolo campione, così potrà valutare la direzione su un testo concreto prima di procedere con il resto.</p>
+</div>
+
+</body>
+</html>
