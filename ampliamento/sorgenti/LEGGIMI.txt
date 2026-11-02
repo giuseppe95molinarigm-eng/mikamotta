@@ -1,0 +1,15 @@
+Sorgenti de "La Radioterapista Invisibile" (nuova edizione ampliata)
+
+testo/          testo del libro, in quattro file, nell'ordine di lettura
+                @capitolo, @inserto, @poesia ... @fine, @immagine file larghezza_in, @stacco, @sezione
+                paragrafo che inizia con "+ " = nuovo; con "~ " = originale ritoccato
+img/            le 6 illustrazioni originali
+build.py        genera out/stampa.html, out/epub.html, out/revisione.docx, out/manoscritto.docx
+stampa.css      impaginazione cartacea 6x9 (paged.js)
+render_print.js crea il PDF di stampa con Chromium/Playwright
+
+Comandi (dalla cartella sorgenti/):
+  python3 build.py
+  node render_print.js "$PWD/out/stampa.html" "$PWD/out/interno_6x9.pdf"
+  cd out && pandoc epub.html -f html -t epub3 --metadata-file=../epub_meta.yaml --css=../epub.css \
+     --split-level=1 --toc --toc-depth=1 --resource-path=.. -o La_Radioterapista_Invisibile_Kindle.epub
