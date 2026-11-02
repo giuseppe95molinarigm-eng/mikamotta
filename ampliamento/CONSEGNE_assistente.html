@@ -1,0 +1,295 @@
+<title>Radioterapista Invisibile – consegne</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Layout: una colonna di lettura con indice laterale su schermi larghi; checklist spuntabili per l'assistente */
+:root {
+  --bg: #fbfaf7; --surface: #f1eee7; --fg: #1d1c1a; --muted: #5f5b53; --line: #dcd6ca;
+  --accent: #1f5f6b; --accent-soft: #dcebee; --warn: #8a4b0f; --warn-soft: #f6e8d6;
+  --serif: 'Literata', Georgia, 'Times New Roman', serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #161716; --surface: #1f2120; --fg: #ebe8e1; --muted: #a7a297; --line: #34372f;
+  --accent: #7cc0cc; --accent-soft: #1f3337; --warn: #e0a868; --warn-soft: #3a2b1b; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #161716; --surface: #1f2120; --fg: #ebe8e1; --muted: #a7a297; --line: #34372f;
+  --accent: #7cc0cc; --accent-soft: #1f3337; --warn: #e0a868; --warn-soft: #3a2b1b; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.6; margin: 0; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-block: 40px 80px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+nav.toc p { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+nav.toc a { color: var(--fg); text-decoration: none; display: block; padding: 3px 0; border-bottom: 1px solid transparent; }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--accent); }
+main { min-width: 0; max-width: 72ch; }
+header .eyebrow { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 6px; }
+h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 5vw, 42px); line-height: 1.12; margin: 0 0 12px; text-wrap: balance; }
+.lede { font-family: var(--serif); font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 25px; line-height: 1.25; margin: 56px 0 12px; text-wrap: balance; scroll-margin-top: 24px; }
+h3 { font-size: 16px; font-weight: 600; margin: 24px 0 6px; }
+p { margin: 0 0 12px; }
+ul, ol { margin: 0 0 14px; padding-left: 22px; }
+li { margin-bottom: 5px; }
+a { color: var(--accent); }
+code, .file { font-family: var(--mono); font-size: 13.5px; background: var(--surface); padding: 1px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+pre { font-family: var(--mono); font-size: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; overflow-x: auto; margin: 0 0 14px; }
+
+.status { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 0 16px; }
+@media (max-width: 520px) { .status { grid-template-columns: minmax(0, 1fr); } }
+th[scope="row"] { border-bottom: 1px solid var(--line); width: 9em; padding-top: 11px; }
+.status div { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--surface); }
+.status b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.status span { font-family: var(--serif); font-size: 18px; }
+
+.tablewrap { overflow-x: auto; margin: 0 0 16px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 1.5px solid var(--fg); }
+td:first-child { white-space: nowrap; }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.tag.warn { background: var(--warn-soft); color: var(--warn); }
+
+.note { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 0 0 16px; }
+.note p:last-child { margin: 0; }
+
+ol.steps { list-style: none; padding: 0; counter-reset: s; display: grid; gap: 10px; }
+ol.steps > li { counter-increment: s; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px 12px 50px; position: relative; margin: 0; }
+ol.steps > li::before { content: counter(s); position: absolute; left: 14px; top: 10px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent); color: var(--bg); font-weight: 600; font-size: 13px; display: grid; place-items: center; }
+ol.steps > li b { display: block; }
+ol.steps > li p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+
+.check { list-style: none; padding: 0; display: grid; gap: 6px; }
+.check li { margin: 0; }
+.check label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.check input { margin-top: 5px; width: 17px; height: 17px; accent-color: var(--accent); flex: none; }
+.check input:checked + span { color: var(--muted); text-decoration: line-through; }
+.check input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+blockquote { margin: 0 0 14px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--surface); font-family: var(--serif); border-radius: 0 6px 6px 0; }
+.small { font-size: 14px; color: var(--muted); }
+
+@media (max-width: 820px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 24px 60px; }
+  nav.toc { position: static; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+  nav.toc ol { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  td:first-child { white-space: normal; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Sezioni">
+    <p>In questa pagina</p>
+    <ol>
+      <li><a href="#stato">Dove siamo</a></li>
+      <li><a href="#ordine">L’ordine</a></li>
+      <li><a href="#file">I file</a></li>
+      <li><a href="#piano">Cosa fare</a></li>
+      <li><a href="#domande">Domande aperte</a></li>
+      <li><a href="#tono">Come scrivere</a></li>
+      <li><a href="#correzioni">Correzioni</a></li>
+      <li><a href="#kdp">Pubblicazione KDP</a></li>
+      <li><a href="#attenzione">Da non fare</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header>
+      <p class="eyebrow">Consegne per l’assistente · Elite Publishing</p>
+      <h1>La Radioterapista Invisibile</h1>
+      <p class="lede">Tutto quello che serve per seguire Micaela nelle prossime due settimane: cosa abbiamo già consegnato, cosa resta da fare e in che ordine.</p>
+    </header>
+
+    <section id="stato">
+      <h2>Dove siamo</h2>
+      <div class="status">
+        <div><b>Cliente</b><span>Micaela (Fiverr: mikamotta)</span></div>
+        <div><b>Lavoro</b><span>Ampliamento già scritto</span></div>
+        <div><b>Fase attuale</b><span>Revisione con la cliente, a blocchi</span></div>
+        <div><b>Primo invio</b><span>Capitoli 1–3</span></div>
+      </div>
+      <p>L’ampliamento del libro è <b>completo</b>: testo, impaginazione per il cartaceo ed ebook Kindle sono pronti. Adesso il lavoro è mandare il testo a Micaela un po’ alla volta, raccogliere le sue osservazioni, applicarle e, quando approva tutto, pubblicare su Amazon KDP.</p>
+      <p>Il libro è passato da circa 9.500 a circa 17.650 parole, da 25 a 29 capitoli (quattro episodi nuovi) e, nel cartaceo 6 × 9 pollici, da 76 a 100 pagine.</p>
+      <div class="note"><p>Verifica con Carlo se il messaggio con i capitoli 1–3 è già partito. Il testo del messaggio è pronto ed è riportato più sotto.</p></div>
+    </section>
+
+    <section id="ordine">
+      <h2>L’ordine</h2>
+      <div class="tablewrap"><table>
+        <tbody>
+          <tr><th scope="row">Servizio</th><td>Ampliamento mirato, formattazione cartacea e Kindle, caricamento su Amazon KDP</td></tr>
+          <tr><th scope="row">Prezzo</th><td>450 USD, tutto compreso, pagati tramite Fiverr</td></tr>
+          <tr><th scope="row">Tempi</th><td>All’ordine sono indicati 30 giorni. A Micaela abbiamo detto circa 20 giorni dall’avvio. Controlla la scadenza esatta sull’ordine Fiverr.</td></tr>
+          <tr><th scope="row">Revisioni</th><td>3, come da offerta Fiverr</td></tr>
+          <tr><th scope="row">Autrice</th><td><b>Micaela Motta</b>. Questa edizione esce con il suo nome vero, non più con lo pseudonimo Lumi Zanardi.</td></tr>
+          <tr><th scope="row">Immagini</th><td>Mantenere le illustrazioni già presenti (lo abbiamo confermato)</td></tr>
+          <tr><th scope="row">Copertina</th><td><span class="tag warn">Non inclusa</span> Micaela ha mandato una nuova immagine e deve ancora decidere se cambiare copertina. Ha detto “vediamo come viene il libro”. Non proporre noi il rifacimento.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="file">
+      <h2>I file</h2>
+      <p>Si trovano nella cartella <code>ampliamento/</code> del repository GitHub <code>giuseppe95molinarigm-eng/mikamotta</code>, branch <code>claude/beautiful-gauss-my6w8t</code>.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>File</th><th>A cosa serve</th><th>Alla cliente?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="file">…_capitoli_1-3_revisione.docx</span></td><td>Primo blocco da mandare: capitoli 1, 2 e 3</td><td><span class="tag">Sì, ora</span></td></tr>
+          <tr><td><span class="file">…_revisione.docx</span></td><td>Libro completo per la revisione. <b>Giallo</b> = testo nuovo, <b>azzurro</b> = frasi originali ritoccate</td><td><span class="tag">A blocchi</span></td></tr>
+          <tr><td><span class="file">…_manoscritto.docx</span></td><td>Lo stesso testo, pulito, senza colori</td><td><span class="tag">Alla fine</span></td></tr>
+          <tr><td><span class="file">…_interno_6x9.pdf</span></td><td>Interno del cartaceo pronto per KDP, 100 pagine</td><td><span class="tag">Alla fine</span></td></tr>
+          <tr><td><span class="file">…_Kindle.epub</span></td><td>Ebook per Kindle, già validato</td><td><span class="tag">Alla fine</span></td></tr>
+          <tr><td><span class="file">NOTA_INTERNA_Carlo.md</span></td><td>Note dettagliate: tutte le scelte fatte, i dubbi, le verifiche</td><td><span class="tag warn">No, interna</span></td></tr>
+          <tr><td><span class="file">sorgenti/</span></td><td>Testo sorgente e script per rigenerare tutti i file dopo le correzioni</td><td><span class="tag warn">No</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="piano">
+      <h2>Cosa fare, in ordine</h2>
+      <p class="small">Le caselle restano spuntate solo nel tuo browser.</p>
+      <ol class="steps">
+        <li><b>Blocco 1: capitoli 1–3</b><p>Manda il Word dei capitoli 1–3 con il messaggio già pronto (sotto). Aspetta le sue osservazioni prima di proseguire.</p></li>
+        <li><b>Blocco 2: capitoli 4–9, con Interludio, ricetta e poesia “Quasi amore”</b><p>Novità principali: la signora Ines nel cap. 5 (balla il liscio il sabato) e lo scontro con Crudelia davanti alla bacheca nel cap. 7. I capitoli 4, 6, 8 e 9 sono rimasti quasi identici.</p></li>
+        <li><b>Blocco 3: capitoli 10–19, con poesia e bonus Margherita</b><p>È il blocco più ricco: il Calciatore (cena, stadio, bar dell’ospedale), Mario Seregni e le sue lezioni, la madre, la signora Ratti e la scatola di latta, Gabriele.</p></li>
+        <li><b>Blocco 4: capitoli 20–25</b><p>Contiene due episodi nuovi: “Martedì con ginecologia” (cap. 20) e “Sala d’attesa, ore 8:10” (cap. 23, raccontato dalla figlia della signora Ratti).</p></li>
+        <li><b>Blocco 5: capitoli 26–29, Lettera notturna e glossario</b><p>Due episodi nuovi: “Centratura” (cap. 26) e “L’ultima seduta” (cap. 28). Nel cap. 29 abbiamo corretto alcune date storiche: segnalaglielo.</p></li>
+        <li><b>Applica le correzioni</b><p>Dopo ogni blocco. Vedi la sezione “Correzioni”.</p></li>
+        <li><b>Approvazione finale</b><p>Quando ha approvato tutti i blocchi, rigenera e mandale il PDF del cartaceo e l’EPUB da vedere prima della pubblicazione.</p></li>
+        <li><b>Pubblicazione su KDP</b><p>Solo dopo la sua approvazione scritta dei file definitivi. Vedi la checklist.</p></li>
+      </ol>
+      <p>Per creare il Word di un blocco, dalla cartella <code>ampliamento/sorgenti/</code>:</p>
+      <pre>python3 estratto.py 4 9</pre>
+      <p class="small">I numeri sono il primo e l’ultimo capitolo. Gli inserti (poesie, bonus) non escono dall’estratto: se servono, mandale il Word completo e indica le pagine.</p>
+
+      <h3>Messaggio pronto per il blocco 1</h3>
+      <blockquote>
+        <p>Ciao Micaela,</p>
+        <p>ti mando i primi tre capitoli della nuova versione. Nel file trovi su fondo giallo le parti nuove e su fondo azzurro le frasi originali che abbiamo ritoccato. Tutto il resto è il tuo testo, invariato.</p>
+        <p>Una premessa: il Word che ci hai mandato è una versione precedente a quella pubblicata (non ha il prologo, le poesie e qualche capitolo), quindi abbiamo lavorato sul libro uscito su Amazon. Nel Word però c’è un capitolo che nel libro non compare, “Il giorno prima della primaria”: se vuoi recuperarlo, dimmelo e lo inseriamo.</p>
+        <p>Il capitolo 1 è quello su cui abbiamo lavorato di più. La storia di Eleonora è la stessa, ma ora si vede meglio come nasce: arriva in ambulatorio con tre pareri negativi e Clara non le dice subito di sì, le dice solo che guarderà. Poi ci sono le notti davanti al piano di cura, la riunione in cui Clara dice “Lo farò io” con le mani che tremano sotto il tavolo, la specializzanda che più tardi la raggiunge in corridoio, e la torta, che Clara trova il giorno dopo in frigorifero con un biglietto: “Per la dottoressa che non c’era”. Abbiamo anche cambiato una frase del finale. Nel testo originale si diceva che da quel giorno nessuno avrebbe più considerato Clara invisibile, ma nei capitoli successivi lo è ancora, e il lettore poteva confondersi. Ora il reparto torna quasi sempre a non vederla, ma qualcuno sa dove cercarla. Dimmi se ti convince.</p>
+        <p>Nel capitolo 2 abbiamo aggiunto qualche riga sul vecchio camice con la toppa: Clara non l’ha buttato e in tasca tiene un biglietto di un paziente, un falegname, che le scrisse “GRAZIE” quando era ancora specializzanda. È il momento in cui decide di restare in radioterapia. È un episodio che abbiamo inventato noi: se hai un ricordo vero su come hai scelto questo lavoro, lo usiamo volentieri al suo posto.</p>
+        <p>Il capitolo 3 invece non l’abbiamo toccato. Ci sembra perfetto così, breve com’è, e allungarlo gli avrebbe tolto forza.</p>
+        <p>Fammi sapere cosa ne pensi, anche su piccoli dettagli. Se qualcosa non ti suona, lo sistemiamo prima di andare avanti con i capitoli successivi.</p>
+        <p>Carlo | Elite Publishing</p>
+      </blockquote>
+    </section>
+
+    <section id="domande">
+      <h2>Domande aperte per Micaela</h2>
+      <p>Non mandarle tutte insieme. Fai ogni domanda con il blocco a cui si riferisce.</p>
+      <h3>Con il blocco 1</h3>
+      <ul class="check">
+        <li><label><input type="checkbox" id="q1"><span>Vuole recuperare il capitolo “Il giorno prima della primaria”, presente solo nel suo Word vecchio? Andrebbe tra il cap. 13 e il cap. 14.</span></label></li>
+        <li><label><input type="checkbox" id="q2"><span>Le va bene il nuovo finale del cap. 1?</span></label></li>
+        <li><label><input type="checkbox" id="q3"><span>Ha un ricordo vero su come ha scelto la radioterapia, al posto dell’episodio inventato del falegname (cap. 2)?</span></label></li>
+      </ul>
+      <h3>Con i blocchi successivi</h3>
+      <ul class="check">
+        <li><label><input type="checkbox" id="q4"><span>Glossario, “Z come Zanardi”: ora che il libro esce con il suo nome, lo teniamo, lo cambiamo o lo togliamo?</span></label></li>
+        <li><label><input type="checkbox" id="q5"><span>I capitoli 15–18 sono raccontati in prima persona da Clara, il resto in terza. Lasciamo così?</span></label></li>
+        <li><label><input type="checkbox" id="q6"><span>Sottotitolo: “Appunti clinici e emozionali” oppure “ed emozionali”?</span></label></li>
+        <li><label><input type="checkbox" id="q7"><span>All’inizio c’è scritto “opera frutto di fantasia”, alla fine “ispirati a fatti reali”. Quale delle due vuole tenere? Non riscriverle senza il suo via libera.</span></label></li>
+        <li><label><input type="checkbox" id="q8"><span>Anno della prima edizione, da citare nel colophon, e se vuole l’ISBN gratuito di KDP.</span></label></li>
+        <li><label><input type="checkbox" id="q9"><span>Ha gli originali in alta risoluzione della lanterna e del calciatore? Le versioni attuali sono un po’ basse per la stampa.</span></label></li>
+        <li><label><input type="checkbox" id="q10"><span>Copertina: tiene quella di prima, usa la nuova immagine o vuole altro? Un rifacimento non è compreso nell’ordine.</span></label></li>
+      </ul>
+      <h3>Passaggi clinici che deve validare lei</h3>
+      <p>Micaela è radioterapista: chiedile di controllare questi punti mentre legge. <b>Non correggerli tu.</b></p>
+      <ul>
+        <li>Cap. 1: le notti al computer con “la riga rossa del cuore” e Eleonora che entra nel bunker “con le scarpe in mano”.</li>
+        <li>Cap. 5: le opzioni per la paziente di 90 anni.</li>
+        <li>Cap. 20: la decisione presa in riunione sul caso della signora Ratti.</li>
+        <li>Cap. 26: la procedura della maschera e della centratura.</li>
+        <li>Cap. 28: come si chiude un trattamento e come funzionano i controlli successivi.</li>
+        <li>Glossario: le 11 voci nuove e la voce HDR corretta.</li>
+        <li>Dal testo originale, non toccati: dosi nei cap. 3 e 17, “carcinoma lobulare” in un uomo nel cap. 16, “pT2b” in una paziente non operata nel cap. 18.</li>
+      </ul>
+    </section>
+
+    <section id="tono">
+      <h2>Come scrivere a Micaela</h2>
+      <ul>
+        <li>Usa il <b>tu</b> e un tono caldo e semplice. Carlo firma “Carlo | Elite Publishing”: firma allo stesso modo o concorda con lui.</li>
+        <li><b>Messaggi brevi, discorsivi, senza elenchi puntati.</b> Le ha preferito così: niente testi che sembrano scritti in automatico.</li>
+        <li>Presenta i cambiamenti come proposte (“dimmi se ti convince”), non come decisioni prese.</li>
+        <li>Gli episodi nuovi sono <b>inventati</b>: dillo chiaramente e chiedile se vuole sostituirli con ricordi veri.</li>
+        <li>Non promettere un numero esatto di pagine. Oggi il cartaceo è di 100 pagine, ma cambierà con le sue correzioni.</li>
+        <li>Pagamenti e comunicazioni <b>solo su Fiverr</b>. Una volta ha proposto un bonifico fuori piattaforma: abbiamo risposto con gentilezza che si procede su Fiverr.</li>
+      </ul>
+    </section>
+
+    <section id="correzioni">
+      <h2>Come applicare le correzioni</h2>
+      <p>Non modificare i Word a mano: le correzioni vanno nel testo sorgente, poi si rigenerano tutti i file insieme, così Word, PDF ed EPUB restano allineati.</p>
+      <ol>
+        <li>Apri il file giusto in <code>ampliamento/sorgenti/testo/</code>:
+          <ul>
+            <li><code>01_apertura.txt</code>: nota, prologo, cap. 1–9 e inserti;</li>
+            <li><code>02_centro.txt</code>: cap. 10–18, poesia e bonus Margherita;</li>
+            <li><code>03_seconda.txt</code>: cap. 19–25;</li>
+            <li><code>04_finale.txt</code>: cap. 26–29, Lettera notturna e glossario.</li>
+          </ul>
+        </li>
+        <li>Correggi il testo. Un paragrafo che inizia con <code>+ </code> è nuovo, uno che inizia con <code>~ </code> è originale ritoccato. Lascia questi segni come sono: servono per i colori del Word di revisione.</li>
+        <li>Rigenera, dalla cartella <code>ampliamento/sorgenti/</code>:
+<pre>python3 build.py
+node render_print.js "$PWD/out/stampa.html" "$PWD/out/interno_6x9.pdf"</pre>
+          Il comando per l’EPUB è in <code>sorgenti/LEGGIMI.txt</code>.</li>
+        <li>Copia i file nuovi da <code>sorgenti/out/</code> nella cartella <code>ampliamento/</code>, sostituendo quelli vecchi.</li>
+      </ol>
+      <p class="small">Se non vuoi usare i comandi, apri una sessione di Claude Code su questo repository, incolla le correzioni di Micaela e chiedi di applicarle e rigenerare i file: ha tutto il contesto in <code>NOTA_INTERNA_Carlo.md</code>.</p>
+    </section>
+
+    <section id="kdp">
+      <h2>Pubblicazione su Amazon KDP</h2>
+      <p>Solo dopo l’approvazione scritta dei file definitivi. Le credenziali KDP le chiediamo <b>soltanto a quel punto</b> (lei si era offerta di darle, le abbiamo detto di aspettare).</p>
+      <ul class="check">
+        <li><label><input type="checkbox" id="k1"><span>Chiarire con lei se aggiornare il libro già pubblicato o creare una nuova edizione. Il cartaceo con più pagine e con il nome dell’autrice cambiato in genere richiede un nuovo ISBN, quindi un nuovo titolo su KDP: verificalo sulle regole KDP aggiornate.</span></label></li>
+        <li><label><input type="checkbox" id="k2"><span>Autrice: Micaela Motta. Titolo e sottotitolo come da sua risposta.</span></label></li>
+        <li><label><input type="checkbox" id="k3"><span>Cartaceo: formato 6 × 9 in, senza abbondanza (no bleed); caricare <span class="file">…_interno_6x9.pdf</span>.</span></label></li>
+        <li><label><input type="checkbox" id="k4"><span>Copertina cartacea: il dorso dipende dalle pagine finali. A 100 pagine è circa 0,225 in con carta bianca, 0,25 in con carta crema. Ricalcola con il numero di pagine definitivo nel calcolatore di copertina KDP.</span></label></li>
+        <li><label><input type="checkbox" id="k5"><span>Kindle: caricare <span class="file">…_Kindle.epub</span>. La copertina si carica a parte.</span></label></li>
+        <li><label><input type="checkbox" id="k6"><span>Descrizione: il testo pronto è in <span class="file">NOTA_INTERNA_Carlo.md</span>, sezione “Testo pronto per la descrizione KDP”. Fallo approvare a Micaela.</span></label></li>
+        <li><label><input type="checkbox" id="k7"><span>Controllare l’anteprima KDP pagina per pagina prima di inviare alla pubblicazione. KDP potrebbe segnalare due immagini sotto i 300 dpi: le accetta comunque.</span></label></li>
+        <li><label><input type="checkbox" id="k8"><span>Mandare a Micaela la conferma con i link dei due formati quando sono online.</span></label></li>
+      </ul>
+    </section>
+
+    <section id="attenzione">
+      <h2>Da non fare</h2>
+      <ul>
+        <li>Non mandarle la nota interna né la cartella dei sorgenti.</li>
+        <li>Non correggere dosi, terapie o termini medici senza il suo parere: è lei la specialista.</li>
+        <li>Non aggiungere guarigioni o risultati delle cure ai pazienti del libro.</li>
+        <li>Non riscrivere da solo l’avvertenza iniziale o le note finali.</li>
+        <li>Non proporre servizi extra, come una nuova copertina, senza averne parlato con Carlo.</li>
+        <li>Non pubblicare su KDP senza la sua approvazione scritta dei file definitivi.</li>
+      </ul>
+      <p class="small">Per i dettagli su ogni scelta fatta nel testo, le fonti delle correzioni storiche e le note tecniche: <span class="file">ampliamento/NOTA_INTERNA_Carlo.md</span>.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+(function () {
+  var KEY = 'radioterapista-consegne-v1';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+  document.querySelectorAll('.check input[type="checkbox"]').forEach(function (box) {
+    if (saved[box.id]) box.checked = true;
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    });
+  });
+})();
+</script>
