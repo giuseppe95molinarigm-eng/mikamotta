@@ -207,7 +207,7 @@ def build_epub_html(sez):
     return p
 
 # ---------------------------------------------------------------- DOCX
-def build_docx(sez, review):
+def build_docx(sez, review, completo=True):
     from docx import Document
     from docx.shared import Pt, Inches, RGBColor, Cm
     from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
@@ -266,7 +266,7 @@ def build_docx(sez, review):
         shade(p, 'new')
         p = d.add_paragraph('I paragrafi su fondo azzurro sono frasi del testo originale ritoccate (refusi, coerenza, raccordi). ')
         shade(p, 'rev')
-        d.add_paragraph('Tutto il resto è il testo originale, invariato. I capitoli 20, 22, 26 e 28 sono episodi interamente nuovi.')
+        d.add_paragraph('Tutto il resto è il testo originale, invariato.' + (' I capitoli 20, 23, 26 e 28 sono episodi interamente nuovi.' if completo else ''))
     p = d.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run(DISCLAIMER); r.font.size = Pt(9); r.italic = True
     for s in sez:
