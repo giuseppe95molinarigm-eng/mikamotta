@@ -10,6 +10,7 @@ render_print.js crea il PDF di stampa con Chromium/Playwright
 
 Comandi (dalla cartella sorgenti/):
   python3 build.py
+  python3 libro_docx.py          (Word impaginato 6x9 da consegnare: out/libro_6x9.docx)
   node render_print.js "$PWD/out/stampa.html" "$PWD/out/interno_6x9.pdf"
   cd out && pandoc epub.html -f html -t epub3 --metadata-file=../epub_meta.yaml --css=../epub.css \
      --split-level=1 --toc --toc-depth=1 --resource-path=.. -o La_Radioterapista_Invisibile_Kindle.epub
